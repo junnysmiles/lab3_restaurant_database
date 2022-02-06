@@ -23,7 +23,7 @@ const RestaurantSchema = new mongoose.Schema({
     },
     name: {
         type: String,
-        required: true
+        required: true,
     },
     restaurant_id:{
         type: Number,
