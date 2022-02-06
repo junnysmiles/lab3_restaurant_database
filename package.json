@@ -1,0 +1,28 @@
+{
+  "name": "lab3_restaurant_database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/junnysmiles/lab3_restaurant_database.git"
+  },
+  "keywords": [],
+  "author": "Jun Yan Gan - 101197834",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/junnysmiles/lab3_restaurant_database/issues"
+  },
+  "homepage": "https://github.com/junnysmiles/lab3_restaurant_database#readme",
+  "devDependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "mongoose": "^6.2.0"
+  }
+}
