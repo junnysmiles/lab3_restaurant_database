@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const AddressSchema = new mongoose.Schema({
     building: Number,
     street: String,
-    zipcode: String
+    zipcode: Number
 })
 
 // Restaurant Schema
@@ -29,6 +29,11 @@ const RestaurantSchema = new mongoose.Schema({
         type: Number,
         requied: true
     }
+})
+
+// Static Method Declaration for Querying
+RestaurantSchema.static("getRestaurantByCuisine", function(value) {
+    return this.find({cuisine: value})
 })
 
 // Middleware POST

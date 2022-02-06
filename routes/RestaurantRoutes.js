@@ -31,5 +31,25 @@ app.post('/restaurant', async (req, res) => {
     }
 })
 
+// GET by cuisine / Search by Cuisine
+// http://localhost:3000/restaurants/cuisine/Japanese
+app.get('/restaurants/cuisine/:cuisine', async (req, res) => {
+    const cuisine = req.params.cuisine
+
+    // Static Method to Query
+    const restaurants = await restaurantModel.getRestaurantByCuisine(cuisine)
+
+    try {
+        if(restaurants.length != 0){
+            res.send(restaurants)
+        } else {
+            res.send(JSON.stringify({status: false, message: "No data found"}))
+        }
+    } catch(err) {
+        console.log("ERROR: " + err)
+        res.status(500).send(err)
+    }
+})
+
 
 module.exports = app
