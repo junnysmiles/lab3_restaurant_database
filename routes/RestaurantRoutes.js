@@ -4,8 +4,15 @@ const app = express()
 
 // GET all restaurants
 // http://localhost:3000/restaurants
+// http://localhost:3000/restaurants?sortBy=ASC // With sortBy query of ascending
+// http://localhost:3000/restaurants?sortBy=DESC // With sortBy query of descending
+
 app.get('/restaurants', async (req, res) => {
-    const restaurants = await restaurantModel.find({})
+    if(req.query.sortBy) {
+        restaurants = await restaurantModel.find({}).sort({'restaurant_id': req.query.sortBy.toLowerCase()})
+    } else {
+        restaurants = await restaurantModel.find({})
+    }
 
     try {
         res.status(200).send(restaurants)
