@@ -58,5 +58,16 @@ app.get('/restaurants/cuisine/:cuisine', async (req, res) => {
     }
 })
 
+// GET restaurants with cuisine of Delicatessen but NOT a city of Brooklyn
+// http://localhost:3000/restaurants/Delicatessen
+app.get('/restaurants/Delicatessen', async (req, res) => {
+    try {
+        const restaurants = await restaurantModel.find({cuisine: 'Delicatessen', city: {$ne: 'Brooklyn'}})
+        res.send(restaurants)
+    } catch(err) {
+        console.log("ERROR: " + err)
+        res.status(500).send(err)
+    }
+})
 
 module.exports = app
